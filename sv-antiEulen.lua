@@ -39,12 +39,12 @@ end)
 RegisterServerEvent("fg:banEulen")
 AddEventHandler("fg:banEulen", function()
     local src = source
-    Ban(src, '[fguard] Stop Being moron ( Event canceled )')
+    Ban(src, '[fiveguard.net] Stop Being moron ( Event canceled )')
 end)
 
 StartHeartbeat = function(id)
     if Here[tonumber(id)] == nil or Here[tonumber(id)] == 0 then
-       Ban(id, '[fguard] Stop Being moron ( Heartbeat didn\'t send ).')
+       Ban(id, '[fiveguard.net] Stop Being moron ( Heartbeat didn\'t send ).')
     end
     Wait(20)
 
@@ -52,11 +52,11 @@ StartHeartbeat = function(id)
 end
 
 ServerHeartbeat = function()
-    print('[fguard] Server heartbeat is stable')
+    print('[fiveguard.net] Server heartbeat is stable')
     for f, g in ipairs(GetPlayers()) do
         if Here[tonumber(g)] == nil then
             if Spawned[tonumber(g)] == 1 then
-                Ban(tonumber(g), 'Not loaded in Players.')           
+                Ban(tonumber(g), '[fiveguard.net] Not loaded in Players.')           
             end
         end
     end
@@ -69,7 +69,7 @@ Citizen.CreateThread(function()
 end)
 
 Ban = function(id, args) 
-    print('[i] ' .. GetPlayerName(id) .. ' has been banned, Reason : ' .. args) -- here you can put your log system
+    print('[fiveguard.net] ' .. GetPlayerName(id) .. ' has been banned, Reason : ' .. args) -- here you can put your log system
     DropPlayer(id, args) -- you can make your ban system here.
 end
 
